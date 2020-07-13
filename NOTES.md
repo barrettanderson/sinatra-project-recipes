@@ -46,3 +46,8 @@ Day 4
 Test out your project to make sure it works as intended. Do any last minute touch ups to it if needed.
 (optional) Pair with someone to practice speaking about your website and going over what you did to create it.
 (optional) Add some styling using a styling framework such as materialize css.
+
+RESTful Routes
+
+HTTP Verb           Route
+get                 resources
