@@ -50,4 +50,10 @@ Test out your project to make sure it works as intended. Do any last minute touc
 RESTful Routes
 
 HTTP Verb           Route
-get                 resources
+get                 /resources
+get                 /resources/new
+post                /resources
+get                 /resources/:id
+get                 /resources/:id/edit
+patch               /resources/:id
+delete              /resources/:id
