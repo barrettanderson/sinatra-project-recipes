@@ -6,19 +6,23 @@ class RecipesController < ApplicationController
     end
 
     get '/recipes/new' do
-        binding.pry
         @recipe = Recipe.new
         erb :'recipes/new'
     end
 
     post '/recipes' do
-        @recipe = Recipe.new(params)
-        redirect to "/recipes/#{@recipe.id}"
+        @recipe = Recipe.new(params[:recipe])
+        # binding.pry
+        if @recipe.save
+            redirect to "/recipes/#{@recipe.id}"
+        else
+            erb :'recipes/new'
+        end
     end
 
     get '/recipes/:id' do
-        @recipe = Recipe.find(params[:id])
-        erb :show
+        @recipe = Recipe.find_by_id(params[:id])
+        erb :'recipes/show'
     end
 
     # get "/recipes/:id/edit" do
