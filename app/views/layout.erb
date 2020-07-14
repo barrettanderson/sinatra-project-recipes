@@ -17,9 +17,12 @@
 
     <nav>
       <ul>
-        <li><a href="/signup">Create an Account</a></li>  
-        <li><a href="/login">Login</a></li>  
-        <li><a href="/logout">logout</a></li>  
+        <% unless logged_in? %>
+          <li><a href="/signup">Create an Account</a></li>  
+          <li><a href="/login">Login</a></li>  
+        <% else %>
+          <li><a href="/logout">logout</a></li>  
+        <% end %>
       </ul>
     </nav>
         <%= yield %>

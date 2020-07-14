@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
+    use Rack::Flash
     
     get '/recipes' do
-        @recipes = Recipe.all
+        @recipes = current_user.recipes
         erb :'recipes/index'
     end
 
@@ -11,11 +12,11 @@ class RecipesController < ApplicationController
     end
 
     post '/recipes' do
-        @recipe = Recipe.new(params[:recipe])
-        # binding.pry
+        @recipe = current_user.recipes.build(params[:recipe])
         if @recipe.save
             redirect to "/recipes/#{@recipe.id}"
         else
+            flash.now[:error] = @recipe.errors.full_messages
             erb :'recipes/new'
         end
     end
@@ -27,12 +28,16 @@ class RecipesController < ApplicationController
 
     get '/recipes/:id/edit' do
         set_recipe
-        erb :'recipes/edit'
+        if current_user == @recipe.user
+            erb :'recipes/edit'
+        else
+            redirect '/recipes'
+        end
     end
 
     patch '/recipes/:id' do
         set_recipe
-        if @recipe.update(
+        if current_user == @recipe.user && @recipe.update(
             name: params[:recipe][:name],
             ingredients: params[:recipe][:ingredients]
         )
@@ -44,7 +49,9 @@ class RecipesController < ApplicationController
 
     delete '/recipes/:id' do
         set_recipe
-        @recipe.destroy
+        if current_user == @recipe.user
+            @recipe.destroy
+        end
         redirect '/recipes'
     end
 
