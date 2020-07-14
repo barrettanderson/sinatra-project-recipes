@@ -21,12 +21,30 @@ class RecipesController < ApplicationController
     end
 
     get '/recipes/:id' do
-        @recipe = Recipe.find_by_id(params[:id])
+        set_recipe
         erb :'recipes/show'
     end
 
-    get "/recipes/:id/edit" do
-        @recipe = Recipe.find_by_id(params[:id])
+    get '/recipes/:id/edit' do
+        set_recipe
         erb :'recipes/edit'
     end
+
+    patch '/recipes/:id' do
+        set_recipe
+        if @recipe.update(
+            name: params[:recipe][:name],
+            ingredients: params[:recipe][:ingredients]
+        )
+            redirect "/recipes/#{@recipe.id}"
+        else
+            erb :'/recipes/edit'
+        end
+    end
+
+    private
+        def set_recipe
+            @recipe = Recipe.find_by_id(params[:id])
+        end
+
 end
