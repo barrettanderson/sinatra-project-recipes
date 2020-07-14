@@ -25,6 +25,22 @@
         <% end %>
       </ul>
     </nav>
+      <% if flash[:error] %>
+        <% flash[:error].each do |error| %>
+          <div>
+            <%= error %>
+          </div>
+        <% end %>
+      <% end %>
+        <% if flash[:notice] %>
+          <div>
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+
+
+
+
         <%= yield %>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
