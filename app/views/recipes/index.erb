@@ -2,5 +2,5 @@
 
 I want this to show the information of the list of recipes for a logged in user
 <% @recipes.each do |recipe| %>
-    <p><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a></p>
+    <p><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p>
 <% end %>

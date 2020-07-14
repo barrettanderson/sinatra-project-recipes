@@ -42,6 +42,12 @@ class RecipesController < ApplicationController
         end
     end
 
+    delete '/recipes/:id' do
+        set_recipe
+        @recipe.destroy
+        redirect '/recipes'
+    end
+
     private
         def set_recipe
             @recipe = Recipe.find_by_id(params[:id])
