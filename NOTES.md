@@ -57,3 +57,14 @@ get                 /recipes/:id
 get                 /recipes/:id/edit
 patch               /recipes/:id
 delete              /recipes/:id
+
+Things to fix - it is creating recipes in next index number even though I have deleted earlier ones.  How do I fix this?
+
+Password does not seem to be secure
+
+I probably want to show other people's recipes.
+
+STyling - Friday Lecture recommend not full css using something like materialize
+
+
+Readme - Instructions for project, forking project, db migrate, information about shotgun

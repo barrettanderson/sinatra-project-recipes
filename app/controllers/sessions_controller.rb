@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     use Rack::Flash
 
     get '/login' do
-        erb :'/sessions/new'
+        erb :'sessions/new'
     end
 
     post '/login' do
