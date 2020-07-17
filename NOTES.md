@@ -64,7 +64,7 @@ Password does not seem to be secure
 
 I probably want to show other people's recipes.
 
-STyling - Friday Lecture recommend not full css using something like materialize
+Styling - Friday Lecture recommend not full css using something like materialize
 
 
 Readme - Instructions for project, forking project, db migrate, information about shotgun
