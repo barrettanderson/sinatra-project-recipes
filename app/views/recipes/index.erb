@@ -1,16 +1,16 @@
 <h1>Recipes List</h1>
 <br>
-<br>
 <a href="/recipes/new">Add New Recipe</a>
 <br>
 <br>
+<div class="divider"></div>
 <h3>Your Recipes</h3>
 <% @recipes.each do |recipe| %>
     <p><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p>
 <% end %>
 <br>
-
+<div class="divider"></div>
 <h5>Others' Recipes</h5>
-<br><% @allrecipes.each do |recipe| %>
+<% @allrecipes.each do |recipe| %>
     <p><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p>
 <% end %>
