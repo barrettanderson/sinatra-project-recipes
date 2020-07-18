@@ -1,6 +1,8 @@
 <h1>Name: <%= @recipe.name%></h1>
 
-Ingredients <%= @recipe.ingredients %>
+Ingredients: <%= @recipe.ingredients %>
+<br>
+<br>
 <% if current_user == @recipe.user %>
     <form action="/recipes/<%= @recipe.id %>" method="post">
         <input type="hidden" name="_method" value="delete">

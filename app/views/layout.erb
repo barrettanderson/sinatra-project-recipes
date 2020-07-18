@@ -17,12 +17,12 @@
     <!-- navigation -->
     <nav class="orange accent-2">
       <div class="container">
-        <a href="/recipes">Recipes</a>
         <ul class ="right">
           <% unless logged_in? %>
             <li><a href="/signup">Create an Account</a></li>  
             <li><a href="/login">Login</a></li>  
           <% else %>
+            <li><a href="/recipes">Recipes</a></li>
             <li><a href="/logout">logout</a></li>
           <% end %>
         </ul>
