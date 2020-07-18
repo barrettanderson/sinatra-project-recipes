@@ -10,28 +10,27 @@
     <title>SinatraProjectRecipes</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
      <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-
-    <nav>
-      <ul>
-        <% unless logged_in? %>
-          <li><a href="/signup">Create an Account</a></li>  
-          <li><a href="/login">Login</a></li>  
-        <% else %>
-          <li><a href="/logout">logout</a></li>  
-        <% end %>
-      </ul>
+    <!-- navigation -->
+    <nav img class="orange accent-2">
+      <div class="container">
+        <a href="/recipes">Recipes</a>
+        <ul class ="right">
+          <% unless logged_in? %>
+            <li><a href="/signup">Create an Account</a></li>  
+            <li><a href="/login">Login</a></li>  
+          <% else %>
+            <li><a href="/logout">logout</a></li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
+    <!-- end navigation -->
+
+    <!-- error messages -->
       <% if flash[:error] %>
         <% flash[:error].each do |error| %>
           <div>
@@ -44,16 +43,23 @@
             <%= flash[:notice] %>
           </div>
         <% end %>
+    <!-- end error messages -->
 
-
-
+    <!-- main content -->
 
         <%= yield %>
 
+    <!-- end main content -->
+
+    <!-- javascripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+    <!-- end javascripts -->
   </body>
 </html>

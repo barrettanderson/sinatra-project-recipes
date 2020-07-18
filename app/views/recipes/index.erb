@@ -4,8 +4,13 @@
 <a href="/recipes/new">Add New Recipe</a>
 <br>
 <br>
-
-I want this to show the information of the list of recipes for a logged in user
+<h3>Your Recipes</h3>
 <% @recipes.each do |recipe| %>
+    <p><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p>
+<% end %>
+<br>
+
+<h5>Others' Recipes</h5>
+<br><% @allrecipes.each do |recipe| %>
     <p><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p>
 <% end %>

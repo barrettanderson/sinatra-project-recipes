@@ -3,7 +3,9 @@ class RecipesController < ApplicationController
     
     get '/recipes' do
         @recipes = current_user.recipes
+        @allrecipes = (Recipe.all - @recipes)
         erb :'recipes/index'
+        # binding.pry
     end
 
     get '/recipes/new' do
